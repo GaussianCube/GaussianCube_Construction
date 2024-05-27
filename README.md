@@ -65,7 +65,16 @@ If you can afford the disk space, we recommend using our environment files for s
 
 #### Densification-constrained Fitting
 
-To run the densification-constrained fitting, we provide an example below:
+To run the densification-constrained fitting, we provide an example below.
+
+First, download the example data from [huggingface](https://huggingface.co/BwZhang/GaussianCube-ShapeNetCar-v1.0/blob/main/example_data.zip). Then, unzip the file by the following command:
+
+```shell
+unzip example_data.zip
+```
+
+Then, run the following command to perform densification-constrained fitting:
+```
 
 ```shell
 python train.py -s ./example_data -m ./output_dc_fitting/ --dataset_type shapenet --white_background --test_iterations 7000 30000 --densification_interval 50 --sh_degree 0 --N_max_pts 32768
@@ -176,6 +185,7 @@ python run_fitting.py --source_path ./example_data --output_path ./output_dc_fit
   Maximum number of Gaussians when fitting a single object , ```32768``` by default.
 </details>
 <br>
+
 #### Gaussian Structuralization via Optimal Transport
 
 After obtaining the fitted Gaussians, we further structuralize them via optimal transport. The running script is as follows:
