@@ -21,9 +21,9 @@ The codebase has 4 main components:
 - The proposed densification-constrained fitting
 - Gaussian structuralization via optimal transport
 
-## Optimizer
+## Construction
 
-The optimizer uses PyTorch and CUDA extensions in a Python environment to produce trained models. 
+We use PyTorch and CUDA extensions in a Python environment to produce trained models. 
 
 ### Hardware Requirements
 
@@ -176,7 +176,6 @@ python run_fitting.py --source_path ./example_data --output_path ./output_dc_fit
   Maximum number of Gaussians when fitting a single object , ```32768``` by default.
 </details>
 <br>
-
 #### Gaussian Structuralization via Optimal Transport
 
 After obtaining the fitted Gaussians, we further structuralize them via optimal transport. The running script is as follows:
@@ -205,7 +204,6 @@ python scripts/ot_structuralization.py --source_root ./output_dc_fitting/ --save
   Flag to visualize the mapping between Gaussians and voxel grid.
 </details>
 <br>
-
 The structuralized GaussianCubes after activation function are saved in ```save_root/volume_act```, which is the input for our 3D generative modeling. The non-activated structuralized GaussianCubes are saved in ```save_root/volume```. The optional visualizations of the mapping between Gaussians and voxel grid are saved in ```save_root/point_cloud```.
 
 ## Citation
